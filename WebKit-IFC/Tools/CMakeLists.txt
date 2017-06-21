@@ -1,0 +1,16 @@
+IF (ENABLE_WEBKIT2)
+    ADD_SUBDIRECTORY(WebKitTestRunner)
+ENDIF ()
+
+IF ("${PORT}" STREQUAL "Efl")
+    IF (ENABLE_WEBKIT)
+        ADD_SUBDIRECTORY(DumpRenderTree/efl)
+        ADD_SUBDIRECTORY(EWebLauncher)
+    ENDIF ()
+
+    IF (ENABLE_WEBKIT2)
+        ADD_SUBDIRECTORY(MiniBrowser/efl)
+    ENDIF ()
+ELSEIF ("${PORT}" STREQUAL "WinCE")
+    ADD_SUBDIRECTORY(WinCELauncher)
+ENDIF()
